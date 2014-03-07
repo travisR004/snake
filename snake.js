@@ -8,6 +8,20 @@
     this.segments = [new SG.Coord(5, 5)];
   };
 
+  Snake.prototype.checkSelfCollision = function (newCoord) {
+    var hit = false
+    this.segments.forEach(function(coord) {
+      if (coord.pos + "" === newCoord.pos + "") {
+        hit = true;
+      }
+    })
+    return hit;
+  };
+
+  Snake.prototype.grow = function () {
+    this.growth = true;
+  };
+
   Snake.prototype.move = function () {
     var oldCoord = this.segments[0]
     var nextSpace = new SG.Coord(oldCoord.x, oldCoord.y);
@@ -21,19 +35,5 @@
 
   Snake.prototype.turn = function (dir) {
     this.dir = dir;
-  };
-
-  Snake.prototype.grow = function () {
-    this.growth = true;
-  };
-
-  Snake.prototype.checkSelfCollision = function (newCoord) {
-    var hit = false
-    this.segments.forEach(function(coord) {
-      if (coord.pos + "" === newCoord.pos + "") {
-        hit = true;
-      }
-    })
-    return hit;
   };
 })(this);

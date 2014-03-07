@@ -7,15 +7,6 @@
     this.start();
   };
 
-  View.prototype.start = function(){
-    var that = this;
-    this.board = new SG.Board();
-    $(document).keydown(function(event){
-      that.handleKeyEvent(event);
-    })
-    var timer = window.setInterval(function(){ that.step(timer)}, 100);
-  };
-
   View.prototype.handleKeyEvent = function(event){
     var that = this;
     var keycode = event.keyCode
@@ -49,6 +40,15 @@
       that.$el.append($newDiv);
       })
     })
+  };
+
+  View.prototype.start = function(){
+    var that = this;
+    this.board = new SG.Board();
+    $(document).keydown(function(event){
+      that.handleKeyEvent(event);
+    })
+    var timer = window.setInterval(function(){ that.step(timer)}, 100);
   };
 
   View.prototype.step = function(timer){

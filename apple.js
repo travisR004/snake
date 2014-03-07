@@ -8,5 +8,4 @@
       Math.floor(Math.random() * SG.BOARD_SIZE)
     ]
   }
-
 })(this);
