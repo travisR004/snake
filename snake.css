@@ -7,21 +7,22 @@ div.board {
 
 .snake {
   float: left;
-  height: 10%;
-  width: 10%;
+  height: 5%;
+  width: 5%;
   background-color: black;
   border-radius: 35%;
 }
 
 .blank {
   float: left;
-  height: 10%;
-  width: 10%;
+  height: 5%;
+  width: 5%;
 }
 
 .apple {
   float: left;
-  height: 10%;
-  width: 10%;
+  height: 5%;
+  width: 5%;
   background-color: red;
+  border-radius: 50%;
 }

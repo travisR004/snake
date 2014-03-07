@@ -13,8 +13,7 @@
     $(document).keydown(function(event){
       that.handleKeyEvent(event);
     })
-    window.setInterval(function(){ that.step()}, 150);
-    // that.step();
+    var timer = window.setInterval(function(){ that.step(timer)}, 100);
   };
 
   View.prototype.handleKeyEvent = function(event){
@@ -36,14 +35,8 @@
     }
   };
 
-  View.prototype.step = function(){
+  View.prototype.makeNewDivs = function (grid) {
     var that = this;
-    var segments = [];
-    var $newDiv = ""
-    var grid = this.board.render();
-    this.board.appleCollision();
-    this.$el.html("")
-    this.board.snake.move();
     grid.forEach(function(row, rInd){
       row.forEach(function(el, cInd){
         if(grid[rInd][cInd] === "S"){
@@ -58,6 +51,17 @@
     })
   };
 
+  View.prototype.step = function(timer){
+    var grid = this.board.render();
+    this.board.appleCollision();
+    this.$el.html("")
+    if(this.board.snake.move()){
+      alert("You tried to eat yourself!")
+      window.clearInterval(timer);
+    }
+    this.board.checkSnakeOB();
+    this.makeNewDivs(grid);
+  };
 })(this);
 
 $(document).ready(function() {
