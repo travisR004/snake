@@ -1,0 +1,27 @@
+
+div.board {
+  height: 800px;
+  width: 800px;
+  background-color: gray;
+}
+
+.snake {
+  float: left;
+  height: 10%;
+  width: 10%;
+  background-color: black;
+  border-radius: 35%;
+}
+
+.blank {
+  float: left;
+  height: 10%;
+  width: 10%;
+}
+
+.apple {
+  float: left;
+  height: 10%;
+  width: 10%;
+  background-color: red;
+}
